@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 /*===== VARIABLES CSS =====*/
 :root {
+  --background-color: linear gradient(purple 60%,blue, 50%);
   --header-height: 3rem;
   --font-semi: 600;
   /*===== Colores =====*/
@@ -25,6 +26,67 @@
   --z-back: -10;
   --z-fixed: 100;
 }
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+
+
+/*===== GLOBAL RESET (fancy upgrade) =====*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/*===== BODY STYLE =====*/
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: linear-gradient(to right, purple 60%, blue 80%);
+}
+
+/*===== SELECTION STYLE =====*/
+::selection {
+  background: var(--first-color);
+  color: #fff;
+}
+
+/*===== LINKS =====*/
+a {
+  text-decoration: none;
+  color: var(--second-color);
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: var(--first-color);
+}
+
+/*===== SMOOTH BUTTON BASE STYLE =====*/
+button {
+  font-family: var(--body-font);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/*===== HEADINGS IMPROVEMENT =====*/
+h1, h2, h3 {
+  font-weight: var(--font-semi);
+  letter-spacing: 0.5px;
+}
+
+/*===== UTILITY SPACING =====*/
+section {
+  padding: var(--mb-6) var(--mb-2);
+}
 @media screen and (min-width: 968px) {
   :root {
     --big-font-size: 3.5rem;
@@ -33,6 +95,9 @@
     --smaller-font-size: .875rem;
   }
 }
+
+
+
 
 /*===== BASE =====*/
 *, ::before, ::after {
@@ -44,10 +109,11 @@ html {
 }
 
 body {
-  margin: var(--header-height) 0 0 0;
+  margin: 0 150px 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--second-color);
+  background: linear-gradient(to right, purple 60%, blue 80%);
 }
 
 h1, h2, p {
@@ -103,39 +169,49 @@ img {
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
 }
-
+header{
+  border: black solid 5px;
+  border-style: inset;
+}
 .l-header {
-  width: 100%;
+  width: 150px;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
+  height: 100vh;
   z-index: var(--z-fixed);
-  background-color: #fff;
-  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  background: linear-gradient(to bottom, purple 60%, blue 80%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.l-header:hover {
+  opacity: 1;
 }
 
 /*===== NAV =====*/
 .nav {
-  height: var(--header-height);
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   font-weight: var(--font-semi);
 }
-@media screen and (max-width: 767px) {
-  .nav__menu {
-    position: fixed;
-    top: var(--header-height);
-    right: -100%;
-    width: 80%;
-    height: 100%;
-    padding: 2rem;
-    background-color: var(--second-color);
-    transition: 0.5s;
-  }
+.nav__menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.nav__item {
-  margin-bottom: var(--mb-4);
+.nav__item{
+
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3cm;
 }
 .nav__link {
   position: relative;
@@ -154,12 +230,15 @@ img {
   background-color: var(--first-color);
 }
 .nav__logo {
-  color: var(--second-color);
+  width: 140px;
+  height: auto;
+  margin-bottom: var(--mb-4);
 }
 .nav__toggle {
-  color: var(--second-color);
+  color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  display: none;
 }
 
 /*Active menu*/
@@ -193,6 +272,7 @@ img {
 }
 .home__title-color {
   color: var(--first-color);
+  transition: opacity 1s ease;
 }
 .home__social {
   display: flex;
@@ -214,10 +294,15 @@ img {
   width: 260px;
 }
 .home__blob {
-  fill: var(--first-color);
+  fill: black;
 }
 .home__blob-img {
   width: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.home__blob-img {
+  filter: saturate(0.8) contrast(1.1);
 }
 
 /*BUTTONS*/
@@ -343,12 +428,16 @@ img {
 }
 
 /* ===== FOOTER =====*/
+footer{
+ margin: right 0;
+}
 .footer {
   background-color: var(--second-color);
   color: #fff;
   text-align: center;
   font-weight: var(--font-semi);
   padding: 2rem 0;
+  margin-right: 0px;
 }
 .footer__title {
   font-size: 2rem;
@@ -418,7 +507,7 @@ img {
 }
 @media screen and (min-width: 768px) {
   body {
-    margin: 0;
+    margin: 0 150px 0 0;
   }
   .section {
     padding-top: 4rem;

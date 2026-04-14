@@ -38,7 +38,9 @@
         --smaller-font-size: .875rem;
     }
 }
-
+.l-header:hover {
+  opacity: 1;
+}
 /*===== BASE =====*/
 *,::before,::after{
     box-sizing: border-box;
@@ -47,10 +49,11 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    margin: var(--header-height) 0 0 0;
+    margin: 0 150px 0 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     color: var(--second-color);
+    background: linear-gradient(to right, purple 60%, blue 80%);
 }
 h1,h2,p{
     margin: 0;  
@@ -103,37 +106,44 @@ img{
     margin-right: var(--mb-2);
 }
 .l-header{
-    width: 100%;
+    width: 150px;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
+    height: 100vh;
     z-index: var(--z-fixed);
-    background-color: #fff;
+    background: linear-gradient(to bottom, purple 60%, blue 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
     box-shadow: 0 1px 4px rgba(146,161,176,.15);
+}
+
+.l-header:hover {
+  opacity: 1;
 }
 
 /*===== NAV =====*/
 .nav{
-    height: var(--header-height);
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     font-weight: var(--font-semi);
 
     &__menu{
-        @media screen and (max-width: 767px){
-            position: fixed;
-            top: var(--header-height);
-            right: -100%;
-            width: 80%;
-            height: 100%;
-            padding: 2rem;
-            background-color: var(--second-color);
-            transition: .5s;
-        }
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     &__item{
-        margin-bottom: var(--mb-4);
+        margin-bottom: 3cm;
     }
     &__link{
         position: relative;
@@ -154,12 +164,14 @@ img{
         }
     }
     &__logo{
-        color: var(--second-color);
+        color: #fff;
+        margin-bottom: var(--mb-4);
     }
     &__toggle{
-        color: var(--second-color);
+        color: #fff;
         font-size: 1.5rem;
         cursor: pointer;
+        display: none;
     }
 }
 /*Active menu*/
@@ -221,6 +233,8 @@ img{
 
         &-img{
             width: 360px;
+            border-radius: 50%;
+            object-fit:cover;
         }
     }
 }
@@ -446,7 +460,7 @@ img{
 
 @media screen and (min-width: 768px){
     body{
-        margin: 0;
+        margin: 0 150px 0 0;
     }
     .section{
         padding-top: 4rem;
