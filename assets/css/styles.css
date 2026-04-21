@@ -2,15 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 /*===== VARIABLES CSS =====*/
 :root {
-  --background-color: linear gradient(purple 60%,blue, 50%);
+  --background-color: linear-gradient(to right, #2a2a2a 0%, #3a3a3a 100%);
   --header-height: 3rem;
   --font-semi: 600;
   /*===== Colores =====*/
-  /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
+  /*Black, gold, and white theme*/
   /* HSL color mode */
-  --hue-color: 224;
-  --first-color: hsl(var(--hue-color), 89%, 60%);
-  --second-color: hsl(var(--hue-color), 56%, 12%);
+  --hue-color: 0;
+  --second-color: #FFD700;
+  --first-color: #000000;
+  --neutral-color: #ffffff;
   /*===== Fuente y tipografia =====*/
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
@@ -26,16 +27,16 @@
   --z-back: -10;
   --z-fixed: 100;
 }
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
-
 
 /*===== GLOBAL RESET (fancy upgrade) =====*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
   scroll-behavior: smooth;
 }
 
@@ -43,38 +44,43 @@
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  color: var(--second-color);
+  color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
-  background-color: linear-gradient(to right, purple 60%, blue 80%);
+  background: var(--background-color);
 }
 
 /*===== SELECTION STYLE =====*/
 ::selection {
-  background: var(--first-color);
-  color: #fff;
+  background: var(--second-color);
+  color: #000;
 }
 
 /*===== LINKS =====*/
 a {
   text-decoration: none;
   color: var(--second-color);
-  transition: 0.3s ease;
+  transition: color 0.35s ease-in-out;
 }
 
 a:hover {
-  color: var(--first-color);
+  color: #ffffff;
 }
 
 /*===== SMOOTH BUTTON BASE STYLE =====*/
 button {
   font-family: var(--body-font);
-  transition: all 0.3s ease;
+  transition: transform 0.35s ease-in-out, background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   cursor: pointer;
 }
 
 button:hover {
   transform: translateY(-2px);
+}
+
+.home__title-color {
+  transition: opacity 0.45s ease-in-out;
+  will-change: opacity;
 }
 
 /*===== HEADINGS IMPROVEMENT =====*/
@@ -113,7 +119,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--second-color);
-  background: linear-gradient(to right, purple 60%, blue 80%);
+  background: var(--background-color);
 }
 
 h1, h2, p {
@@ -180,7 +186,7 @@ header{
   right: 0;
   height: 100vh;
   z-index: var(--z-fixed);
-  background: linear-gradient(to bottom, purple 60%, blue 80%);
+  background: linear-gradient(to bottom, #2a2a2a, #3a3a3a);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -211,7 +217,7 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3cm;
+  gap: 60px;
 }
 .nav__link {
   position: relative;
@@ -230,9 +236,23 @@ header{
   background-color: var(--first-color);
 }
 .nav__logo {
-  width: 140px;
+  width: auto;
   height: auto;
   margin-bottom: var(--mb-4);
+  color: var(--second-color);
+  font-size: 1.25rem;
+  font-weight: var(--font-semi);
+}
+.nav__logo h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--second-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  transition: filter 0.3s ease;
+}
+.nav__logo h2:hover {
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
 }
 .nav__toggle {
   color: #fff;
@@ -282,10 +302,9 @@ header{
   width: max-content;
   margin-bottom: var(--mb-2);
   font-size: 1.5rem;
-  color: var(--second-color);
 }
 .home__social-icon:hover {
-  color: var(--first-color);
+  color: inherit;
 }
 .home__img {
   position: absolute;
@@ -308,15 +327,16 @@ header{
 /*BUTTONS*/
 .button {
   display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
+  background-color: var(--second-color);
+  color: #000;
   padding: 0.75rem 2.5rem;
   font-weight: var(--font-semi);
   border-radius: 0.5rem;
   transition: 0.3s;
 }
 .button:hover {
-  box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 36px rgba(255, 215, 0, 0.3);
+  background-color: #ffffff;
 }
 
 /* ===== ABOUT =====*/
@@ -436,20 +456,41 @@ footer{
   color: #fff;
   text-align: center;
   font-weight: var(--font-semi);
-  padding: 2rem 0;
+  padding: 0.25rem 0;
   margin-right: 0px;
 }
 .footer__title {
-  font-size: 2rem;
-  margin-bottom: var(--mb-4);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 .footer__social {
-  margin-bottom: var(--mb-4);
+  margin-bottom: 0.5rem;
 }
 .footer__icon {
-  font-size: 1.5rem;
+  font-size: 0.875rem;
   color: #fff;
-  margin: 0 var(--mb-2);
+  margin: 0 0.5rem;
+}
+.home__social-icon .bxl-linkedin,
+.footer__icon .bxl-linkedin {
+  color: #0A66C2;
+}
+.home__social-icon .bxl-behance,
+.footer__icon .bxl-behance {
+  color: #1769FF;
+}
+.home__social-icon .bxl-github,
+.footer__icon .bxl-github {
+  color: #181717;
+}
+.footer__icon .bxl-facebook {
+  color: #1877F2;
+}
+.footer__icon .bxl-instagram {
+  color: #E1306C;
+}
+.footer__icon .bxl-twitter {
+  color: #1DA1F2;
 }
 .footer__copy {
   font-size: var(--smaller-font-size);
@@ -471,8 +512,9 @@ footer{
   }
   .nav {
     height: var(--header-height);
+    position: relative;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 1rem;
   }
@@ -497,12 +539,19 @@ footer{
   }
   .nav__toggle {
     display: block;
+    position: absolute;
+    right: 1rem;
     color: #fff;
     font-size: 1.5rem;
   }
   .nav__logo {
-    width: 60px;
-    border-radius: 50%;
+    width: auto;
+    border-radius: 0;
+    font-size: 1rem;
+    color: var(--second-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+    transition: filter 0.3s ease;
   }
   .show {
     left: 0;

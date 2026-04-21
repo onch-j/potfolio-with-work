@@ -1,0 +1,6 @@
+/* ── SECTION ── */
+.section { padding: 4rem; max-width: 1200px; margin: 0 auto; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; }
+.section-head h2 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; }
+.section-head a { font-size: 0.875rem; font-weight: 600; color: var(--green); text-decoration: none; }
+.section-head a:hover { text-decoration: underline; }

@@ -1,0 +1,15 @@
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .hero-visual { display: none; }
+  .section { padding: 2rem 1.5rem; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-row { padding: 0 1.5rem; }
+  .banner-wrap { padding: 0 1.5rem; }
+  .banner { grid-template-columns: 1fr; }
+  .banner-visual { display: none; }
+  .trust-bar { flex-wrap: wrap; gap: 1rem; padding: 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  footer { padding: 2rem 1.5rem; }
+}

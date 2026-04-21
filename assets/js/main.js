@@ -24,6 +24,8 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
+let scrollActivePending = false;
+
 const scrollActive = () =>{
     const scrollDown = window.scrollY
 
@@ -40,7 +42,16 @@ const scrollActive = () =>{
         }                                                    
     })
 }
-window.addEventListener('scroll', scrollActive)
+
+window.addEventListener('scroll', () => {
+  if (!scrollActivePending) {
+    scrollActivePending = true;
+    requestAnimationFrame(() => {
+      scrollActive();
+      scrollActivePending = false;
+    });
+  }
+});
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({

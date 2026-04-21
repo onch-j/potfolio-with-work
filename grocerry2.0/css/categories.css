@@ -1,0 +1,12 @@
+/* ── CATEGORIES ── */
+.cat-row { display: flex; gap: 0.75rem; padding: 0 4rem; max-width: 1200px; margin: 0 auto 1rem; flex-wrap: wrap; }
+.cat-chip {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border-radius: 50px; cursor: pointer;
+  background: white; border: 1.5px solid var(--border);
+  font-size: 0.85rem; font-weight: 500; color: var(--mid);
+  transition: all 0.2s;
+}
+.cat-chip:hover { border-color: var(--green); color: var(--green); }
+.cat-chip.active { background: var(--green); color: white; border-color: var(--green); }
+.cat-chip .cicon { font-size: 1rem; }

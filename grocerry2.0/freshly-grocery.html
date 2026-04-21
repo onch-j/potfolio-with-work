@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freshly — Farm Fresh Groceries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/trust-bar.css">
+<link rel="stylesheet" href="css/section.css">
+<link rel="stylesheet" href="css/categories.css">
+<link rel="stylesheet" href="css/product-grid.css">
+<link rel="stylesheet" href="css/banner.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/toast.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">fresh<em>ly</em></a>
+  <ul class="nav-links">
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#deals">Deals</a></li>
+    <li><a href="#organic">Organic</a></li>
+    <li><a href="#subscription">Subscribe</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#7A8C82" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="#7A8C82" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Search fresh produce...">
+    </div>
+    <button class="cart-btn" id="cart-btn" onclick="viewCart()">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M1 1h2l2.4 7.4A1 1 0 0 0 6.35 9h6.3a1 1 0 0 0 .95-.69L15 4H4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="13" r="1" fill="white"/><circle cx="13" cy="13" r="1" fill="white"/></svg>
+      Cart
+      <span class="badge" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-pill">🌿 Free delivery on orders over Ksh 1,500</div>
+    <h1>Fresh food,<br>honestly <em>grown</em>,<br>doorstep fast</h1>
+    <p class="hero-sub">Farm-to-table produce and everyday groceries sourced from trusted local farms — delivered to your door in as little as 2 hours.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop now →</button>
+      <button class="btn-ghost" onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">See deals</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="num">500+</div><div class="lbl">Fresh products</div></div>
+      <div class="stat-item"><div class="num">2hr</div><div class="lbl">Delivery window</div></div>
+      <div class="stat-item"><div class="num">98%</div><div class="lbl">Happy customers</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card tall" style="background: linear-gradient(160deg,#E8F5EE,#C3E6D0)">
+      <div class="card-img" style="flex:1;min-height:220px;font-size:6rem">🥑</div>
+      <div class="card-body">
+        <div class="ctag">Fruit · Organic</div>
+        <h3>Hass Avocados</h3>
+        <div class="cprice"><span class="price" style="color:var(--green)">Ksh 320 <span style="font-size:0.75rem;font-weight:400;color:var(--muted)">/ pack of 4</span></span><button class="mini-add" onclick="addItem('Hass Avocados', 320)">+</button></div>
+      </div>
+    </div>
+    <div class="hero-card" style="background: linear-gradient(135deg,#FFF3E8,#FFE0C0)">
+      <div class="card-img" style="height:130px;font-size:3.5rem">🥭</div>
+      <div class="card-body">
+        <div class="ctag">Fruit</div>
+        <h3>Sweet Mangoes</h3>
+        <div class="cprice"><span class="price" style="color:var(--green)">Ksh 150</span><button class="mini-add" onclick="addItem('Sweet Mangoes', 150)">+</button></div>
+      </div>
+    </div>
+    <div class="green-block">
+      <div class="big">New</div>
+      <div class="sm">arrivals daily</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">🚚</span><span><strong>Free delivery</strong> over Ksh 1,500</span></div>
+  <div class="trust-item"><span class="icon">🌿</span><span><strong>100% organic</strong> options available</span></div>
+  <div class="trust-item"><span class="icon">⏱</span><span><strong>2-hour</strong> express delivery</span></div>
+  <div class="trust-item"><span class="icon">✓</span><span><strong>Quality guaranteed</strong> or full refund</span></div>
+  <div class="trust-item"><span class="icon">🤝</span><span><strong>Local farms</strong> we trust</span></div>
+</div>
+
+<!-- SHOP SECTION -->
+<div id="shop" class="section">
+  <div class="section-head">
+    <h2>Fresh picks</h2>
+    <a href="#">View all products →</a>
+  </div>
+
+  <!-- Category chips -->
+  <div class="cat-row" style="padding:0;margin-bottom:1.5rem">
+    <button class="cat-chip active" onclick="filter(this,'all')"><span class="cicon">🛒</span> All items</button>
+    <button class="cat-chip" onclick="filter(this,'fruit')"><span class="cicon">🍎</span> Fruits</button>
+    <button class="cat-chip" onclick="filter(this,'vegetable')"><span class="cicon">🥦</span> Vegetables</button>
+    <button class="cat-chip" onclick="filter(this,'dairy')"><span class="cicon">🥛</span> Dairy & Eggs</button>
+    <button class="cat-chip" onclick="filter(this,'bakery')"><span class="cicon">🍞</span> Bakery</button>
+    <button class="cat-chip" onclick="filter(this,'pantry')"><span class="cicon">🫙</span> Pantry</button>
+  </div>
+
+  <div class="product-grid" id="product-grid"></div>
+</div>
+
+<!-- SUBSCRIPTION BANNER -->
+<div class="banner-wrap" id="subscription">
+  <div class="banner">
+    <div>
+      <h2>Your weekly <em>organic box</em>, curated with care</h2>
+      <p>Subscribe and receive a handpicked seasonal box of the freshest organic produce straight from local farms — every week, without the hassle.</p>
+      <div class="banner-actions">
+        <button class="btn-white" onclick="alert('Subscription coming soon!')">Start for Ksh 2,500/week →</button>
+        <button class="btn-outline-white">Learn more</button>
+      </div>
+    </div>
+    <div class="banner-visual">
+      <div class="sub-card">
+        <div class="sc-label">This week's box includes</div>
+        <div class="sc-value">14 items 🌾</div>
+        <div class="sc-sub">Spinach · Carrots · Tomatoes · more</div>
+      </div>
+      <div class="sub-card">
+        <div class="sc-label">You save on average</div>
+        <div class="sc-value">Ksh 800</div>
+        <div class="sc-sub">Compared to buying individually</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEALS SECTION -->
+<div id="deals" class="section">
+  <div class="section-head">
+    <h2>Today's deals</h2>
+    <a href="#">See all offers →</a>
+  </div>
+  <div class="product-grid" id="deal-grid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">fresh<em>ly</em></div>
+      <p class="footer-tagline">Your neighbourhood grocery store, now at your fingertips. Fresh, fast, and honest.</p>
+      <div class="footer-socials">
+        <button class="social-btn">𝕏</button>
+        <button class="social-btn">f</button>
+        <button class="social-btn">in</button>
+        <button class="social-btn">▶</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Fresh produce</a></li>
+        <li><a href="#">Organic range</a></li>
+        <li><a href="#">Pantry staples</a></li>
+        <li><a href="#">Today's deals</a></li>
+        <li><a href="#">Subscriptions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Delivery info</a></li>
+        <li><a href="#">Returns policy</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Track order</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Our farms</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Freshly Ltd. All rights reserved.</p>
+    <p>Built with care 🌿 · Privacy · Terms</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  {id:1,name:'Hass Avocados',cat:'fruit',emoji:'🥑',bg:'#EAF5EF',price:320,unit:'pack of 4',badge:'organic'},
+  {id:2,name:'Organic Spinach',cat:'vegetable',emoji:'🥬',bg:'#EAF5EF',price:180,unit:'250g bunch',badge:'organic'},
+  {id:3,name:'Free-Range Eggs',cat:'dairy',emoji:'🥚',bg:'#FFFDE8',price:560,unit:'tray of 30',badge:'new'},
+  {id:4,name:'Sourdough Loaf',cat:'bakery',emoji:'🍞',bg:'#FFF3E8',price:420,unit:'800g loaf',badge:'new'},
+  {id:5,name:'Sweet Mangoes',cat:'fruit',emoji:'🥭',bg:'#FFF8E8',price:150,unit:'per piece',badge:null},
+  {id:6,name:'Broccoli Crown',cat:'vegetable',emoji:'🥦',bg:'#EAF5EF',price:120,unit:'approx 500g',badge:null},
+  {id:7,name:'Greek Yoghurt',cat:'dairy',emoji:'🫙',bg:'#EFF4FF',price:380,unit:'500ml tub',badge:null},
+  {id:8,name:'Raw Honey Jar',cat:'pantry',emoji:'🍯',bg:'#FFF8E8',price:650,unit:'500g jar',badge:'new'},
+];
+
+const deals = [
+  {id:9,name:'Baby Tomatoes',cat:'vegetable',emoji:'🍅',bg:'#FFF0F0',price:160,was:220,unit:'punnet 350g',badge:'sale'},
+  {id:10,name:'Fresh Orange Juice',cat:'pantry',emoji:'🍊',bg:'#FFF3E8',price:280,was:380,unit:'1 litre carton',badge:'sale'},
+  {id:11,name:'Full Cream Milk',cat:'dairy',emoji:'🥛',bg:'#EFF4FF',price:130,was:170,unit:'1 litre',badge:'sale'},
+  {id:12,name:'Whole Pineapple',cat:'fruit',emoji:'🍍',bg:'#FFFDE8',price:200,was:280,unit:'each',badge:'sale'},
+];
+
+let cart = [];
+
+function makeCard(p) {
+  const badgeHTML = p.badge ? `<div class="prod-badge badge-${p.badge}">${p.badge.toUpperCase()}</div>` : '';
+  const wasHTML = p.was ? `<span class="was">Ksh ${p.was}</span>` : '';
+  return `
+    <div class="product-card" data-cat="${p.cat}">
+      <div class="prod-img" style="background:${p.bg}">
+        ${badgeHTML}
+        <span style="font-size:3.8rem">${p.emoji}</span>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">${p.cat}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-unit">${p.unit}</div>
+        <div class="prod-footer">
+          <div class="prod-price">${wasHTML}Ksh ${p.price}</div>
+          <button class="add-to-cart" onclick="addItem('${p.name}', ${p.price})">+</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+document.getElementById('product-grid').innerHTML = products.map(makeCard).join('');
+document.getElementById('deal-grid').innerHTML = deals.map(makeCard).join('');
+
+function filter(el, cat) {
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#product-grid .product-card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+  });
+}
+
+function addItem(name, price) {
+  cart.push({name, price});
+  document.getElementById('cart-count').textContent = cart.length;
+  showToast('Added ' + name + ' to cart ✓');
+}
+
+function viewCart() {
+  if(cart.length === 0) { showToast('Your cart is empty'); return; }
+  const total = cart.reduce((s,i) => s+i.price, 0);
+  alert('Cart (' + cart.length + ' items)\n' + cart.map(i=>i.name).join('\n') + '\n\nTotal: Ksh ' + total.toLocaleString());
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

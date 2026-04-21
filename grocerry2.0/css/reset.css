@@ -1,0 +1,19 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #1A5C3A;
+  --green-mid: #2D7A52;
+  --green-light: #4CAF78;
+  --green-pale: #EAF5EF;
+  --cream: #FDFAF5;
+  --warm-white: #FFFFFF;
+  --dark: #0F1A14;
+  --mid: #3D4F45;
+  --muted: #7A8C82;
+  --border: #E2EDE6;
+  --amber: #F59E0B;
+  --red: #E53E3E;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; }
