@@ -187,8 +187,8 @@ header{
   height: 100vh;
   z-index: var(--z-fixed);
   background: linear-gradient(to bottom, #2a2a2a, #3a3a3a);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 1;
+  transition: none;
 }
 
 .l-header:hover {
@@ -457,7 +457,6 @@ footer{
   text-align: center;
   font-weight: var(--font-semi);
   padding: 0.25rem 0;
-  margin-right: 0px;
 }
 .footer__title {
   font-size: 0.875rem;
@@ -560,9 +559,30 @@ footer{
     padding-top: 6rem;
     row-gap: 2rem;
   }
+  img,
+  .home__blob-img,
+  .home__blob {
+    max-width: 90%;
+    height: auto;
+  }
   .home__img {
     position: relative;
-    width: 200px;
+    width: 180px;
+    margin: 0 auto;
+  }
+  .home__blob-img {
+    width: 220px;
+  }
+  .about__img img,
+  .work__img img,
+  .skills__img img {
+    width: 160px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  .work__img {
+    max-width: 190px;
     margin: 0 auto;
   }
   .home__social {
